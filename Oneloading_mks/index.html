@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur Liberty Five</title>
+    <style>
+        /* Styles de base */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Vid�o en arri�re-plan */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Conteneur principal */
+        .loading-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+        /* Section en haut */
+        .top-section {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .top-section h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .top-section button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff4757;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-section button:hover {
+            background-color: #e84118;
+        }
+
+        /* News en bas � gauche */
+        .bottom-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        /* Fondateurs en bas � droite */
+        .bottom-right {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <!-- Vid�o de fond -->
+        <video id="loadingVideo" autoplay loop muted>
+            <source src="video/video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas les vid�os.
+        </video>
+
+        <!-- Section en haut : Titre + Bouton pour couper/activer le son -->
+        <div class="top-section">
+            <h1>Bienvenue sur Liberty Five !</h1>
+            <button id="toggleSoundButton">Activer le son</button>
+        </div>
+
+        <!-- News en bas � gauche -->
+        <div class="bottom-left">
+            <h2>News du Serveur :</h2>
+            <ul>
+                <li>Nouveau menu pause.</li>
+                <li>�v�nement sp�cial sur le serveur !</li>
+                <li>Mise � jour du loading.</li>
+            </ul>
+        </div>
+
+        <!-- Noms des fondateurs en bas � droite -->
+        <div class="bottom-right">
+            <h2>Fondateurs :</h2>
+            <p>MKS Studio</p>
+            <p>mks</p>
+        </div>
+    </div>
+
+    <script>
+        // G�rer le son de la vid�o
+        const video = document.getElementById('loadingVideo');
+        const soundButton = document.getElementById('toggleSoundButton');
+
+        soundButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                soundButton.textContent = "Couper le son";
+            } else {
+                video.muted = true;
+                soundButton.textContent = "Activer le son";
+            }
+        });
+    </script>
+</body>
+</html>
